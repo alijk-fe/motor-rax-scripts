@@ -6,7 +6,7 @@ const qrcode = require('qrcode-terminal');
 const { handleWebpackErr } = require('rax-compile-config');
 const getMiniAppOutput = require('./config/miniapp/getOutputPath');
 
-const { WEB, WEEX, MINIAPP, KRAKEN, WECHAT_MINIPROGRAM } = require('./constants');
+const { WEB, WEEX, MINIAPP, KRAKEN, WECHAT_MINIPROGRAM, BYTEDANCE_MICROAPP } = require('./constants');
 
 module.exports = ({ onGetWebpackConfig, registerTask, context, getValue, onHook }, options = {}) => {
   const { targets = [] } = options;
@@ -103,11 +103,17 @@ module.exports = ({ onGetWebpackConfig, registerTask, context, getValue, onHook 
       console.log('   ', chalk.underline.white(getMiniAppOutput(context, { target: WECHAT_MINIPROGRAM })));
       console.log();
     }
+
+    if (targets.includes(BYTEDANCE_MICROAPP)) {
+      console.log(chalk.green('[ByteDance MicroApp] Use bytedance microapp developer tools to open the following folder:'));
+      console.log('   ', chalk.underline.white(getMiniAppOutput(context, { target: BYTEDANCE_MICROAPP })));
+      console.log();
+    }
   }
 };
 
 function getConfig(target, options = {}) {
-  if ([MINIAPP, WECHAT_MINIPROGRAM].indexOf(target) > -1) {
+  if ([MINIAPP, WECHAT_MINIPROGRAM, BYTEDANCE_MICROAPP].indexOf(target) > -1) {
     if (options[target] && options[target].buildType === 'runtime') {
       return [require('./config/miniapp/runtime/getBase')];
     } else {

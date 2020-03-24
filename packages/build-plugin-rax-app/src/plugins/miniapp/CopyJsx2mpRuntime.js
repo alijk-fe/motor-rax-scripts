@@ -16,7 +16,7 @@ function getHighestPriorityPackageJSON(packageName, rootDir) {
   });
   return packageJSONPath;
 }
-
+// todo
 const runtime = 'jsx2mp-runtime';
 let runtimePackageJSONPath = null;
 let runtimePackageJSON = null;

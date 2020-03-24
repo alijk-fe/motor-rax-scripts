@@ -1,4 +1,4 @@
-const { MINIAPP, WECHAT_MINIPROGRAM } = require('../../../constants');
+const { MINIAPP, WECHAT_MINIPROGRAM, BYTEDANCE_MICROAPP } = require('../../../constants');
 
 
 module.exports = {
@@ -18,6 +18,14 @@ module.exports = {
       css: '.wxss',
     }
   },
+  [BYTEDANCE_MICROAPP]: {
+    type: 'bytedance',
+    name: 'ByteDance MicroApp',
+    extension: {
+      xml: '.ttml',
+      css: '.ttss'
+    }
+  }
   // Wait for implementation
   // 'baidu': {
   //   type: 'baidu',
@@ -27,12 +35,4 @@ module.exports = {
   //     css: '.css',
   //   }
   // },
-  // 'bytedance': {
-  //   type: 'bytedance',
-  //   name: 'ByteDance MicroApp',
-  //   extension: {
-  //     xml: '.ttml',
-  //     css: '.ttss'
-  //   }
-  // }
 };
