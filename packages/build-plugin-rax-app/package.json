@@ -16,6 +16,9 @@
     "@alib/build-scripts": "^0.1.0",
     "rax": "^1.0.0"
   },
+  "publishConfig": {
+    "registry": "https://registry.npm.alibaba-inc.com"
+  },
   "dependencies": {
     "@babel/core": "7.2.0",
     "autoprefixer": "^9.4.3",
