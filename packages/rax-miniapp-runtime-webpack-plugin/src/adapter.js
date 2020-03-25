@@ -1,4 +1,4 @@
-const { MINIAPP, WECHAT_MINIPROGRAM } = require('./constants');
+const { MINIAPP, WECHAT_MINIPROGRAM, BYTEDANCE_MICROAPP } = require('./constants');
 
 module.exports = {
   [MINIAPP]: {
@@ -27,4 +27,17 @@ module.exports = {
       elif: 'wx:alif',
     },
   },
+  [BYTEDANCE_MICROAPP]: {
+    name: 'ByteDance MicroApp',
+    APINamespace: 'tt',
+    npmDirName: 'microapp_npm',
+    fileName: 'bytedance',
+    css: 'ttss',
+    xml: 'ttml',
+    directive: {
+      prefix: 'tt',
+      if: 'tt:if',
+      elif: 'tt:elif',
+    },
+  }
 };

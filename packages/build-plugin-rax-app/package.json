@@ -34,7 +34,7 @@
     "image-source-loader": "^0.6.5",
     "ip": "^1.1.5",
     "json-loader": "^0.5.7",
-    "jsx2mp-loader": "^0.4.0",
+    "@ali/tt-jsx2mp-loader": "^1.0.0",
     "jsx2mp-runtime": "^0.4.1",
     "klaw-sync": "^6.0.0",
     "less": "^3.9.0",
