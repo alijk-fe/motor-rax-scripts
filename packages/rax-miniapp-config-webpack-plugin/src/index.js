@@ -4,7 +4,7 @@ const fs = require('fs');
 const { ensureDirSync, pathExistsSync } = require('fs-extra');
 const safeWriteFile = require('./safeWriteFile');
 const adaptConfig = require('./adaptConfig');
-const constants = require('./constants');
+const { BYTEDANCE_MICROAPP } = require('./constants');
 
 const PluginName = 'MiniAppConfigPlugin';
 
@@ -23,13 +23,14 @@ module.exports = class MiniAppConfigPlugin {
         safeWriteFile(join(outputPath, 'app.config.js'), `module.exports = ${JSON.stringify(appConfig, null, 2)}`);
       }
       // add project json
-      if (constants[target] && constants[target] === 'bytedance-microapp') {
+      if (target === BYTEDANCE_MICROAPP) {
         const projectPath = join(entryPath, '../', 'project.config.json');
         try {
           const content = fs.readFileSync(projectPath);
           safeWriteFile(join(outputPath, 'project.config.json'), content);
         } catch(err) {
-          safeWriteFile(join(outputPath, 'project.config.json'), `{
+          safeWriteFile(join(outputPath, 'project.config.json'),
+          `{
             "setting": {
               "es6": true
             }

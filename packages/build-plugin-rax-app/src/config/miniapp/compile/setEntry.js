@@ -1,7 +1,7 @@
 const { dirname, join, sep } = require('path');
 
-const AppLoader = require.resolve('jsx2mp-loader/src/app-loader');
-const PageLoader = require.resolve('jsx2mp-loader/src/page-loader');
+const AppLoader = require.resolve('@ali/tt-jsx2mp-loader/src/app-loader');
+const PageLoader = require.resolve('@ali/tt-jsx2mp-loader/src/page-loader');
 
 /**
  * ./pages/foo -> based on src, return original

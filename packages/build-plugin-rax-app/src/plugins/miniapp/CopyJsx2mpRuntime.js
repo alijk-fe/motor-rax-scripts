@@ -17,7 +17,7 @@ function getHighestPriorityPackageJSON(packageName, rootDir) {
   return packageJSONPath;
 }
 // todo
-const runtime = 'jsx2mp-runtime';
+const runtime = '@ali/tt-jsx2mp-runtime';
 let runtimePackageJSONPath = null;
 let runtimePackageJSON = null;
 let runtimePackagePath = null;
@@ -46,8 +46,9 @@ module.exports = class JSX2MPRuntimePlugin {
         const runtimeTargetPath = runtimePackageJSON.miniprogram && runtimePackageJSON.miniprogram[this.platform]
           ? runtimePackageJSON.miniprogram[this.platform]
           : runtimePackageJSON.main || 'index.js';
+        console.log('sourceFile', runtimePackagePath, runtimeTargetPath);
         const sourceFile = require.resolve(join(runtimePackagePath, runtimeTargetPath));
-        const targetFile = join(this.outputPath, 'npm', runtime + '.js');
+        const targetFile = join(this.outputPath, 'npm', 'jsx2mp-runtime.js');
         ensureFileSync(targetFile);
         if (this.mode === 'build') {
           const sourceCode = minify(readFileSync(sourceFile, 'utf-8')).code;
