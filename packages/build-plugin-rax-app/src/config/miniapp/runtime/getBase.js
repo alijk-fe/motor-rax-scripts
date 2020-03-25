@@ -1,4 +1,4 @@
-const MiniAppRuntimePlugin = require('rax-miniapp-runtime-webpack-plugin');
+const MiniAppRuntimePlugin = require('@ali/tt-rax-miniapp-runtime-webpack-plugin');
 const MiniAppConfigPlugin = require('@ali/tt-rax-miniapp-config-webpack-plugin');
 const getWebpackBase = require('../../getWebpackBase');
 const getAppConfig = require('../getAppConfig');

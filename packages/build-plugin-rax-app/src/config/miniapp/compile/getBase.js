@@ -16,8 +16,8 @@ const CopyPublicFilePlugin = require('../../../plugins/miniapp/CopyPublicFile');
 const platformConfig = require('./platformConfig');
 const targetPlatformMap = require('../targetPlatformMap');
 
-const ScriptLoader = require.resolve('jsx2mp-loader/src/script-loader');
-const FileLoader = require.resolve('jsx2mp-loader/src/file-loader');
+const ScriptLoader = require.resolve('@ali/tt-jsx2mp-loader/src/script-loader');
+const FileLoader = require.resolve('@ali/tt-jsx2mp-loader/src/file-loader');
 
 module.exports = (context, target, options = {}) => {
   const { platform = targetPlatformMap[target], mode = 'build', disableCopyNpm = false, turnOffSourceMap = false } = options[target] || {};

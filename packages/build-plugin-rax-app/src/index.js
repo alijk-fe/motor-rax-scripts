@@ -5,6 +5,7 @@ const build = require('./build');
 const dev = require('./dev');
 
 const pluginApp = (api, options = {}) => {
+  console.log('options.targets', options.targets);
   enterCheck(api, options);
 
   api.setValue('targets', options.targets);

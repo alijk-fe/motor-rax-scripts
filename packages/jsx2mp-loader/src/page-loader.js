@@ -26,7 +26,7 @@ module.exports = async function pageLoader(content) {
 
   const isFromConstantDir = cached(isFromTargetDirs(absoluteConstantDir));
 
-  const JSXCompilerPath = getHighestPriorityPackage('jsx-compiler', this.rootContext);
+  const JSXCompilerPath = getHighestPriorityPackage('@ali/tt-jsx-compiler', this.rootContext);
   const compiler = require(JSXCompilerPath);
 
   const compilerOptions = Object.assign({}, compiler.baseOptions, {

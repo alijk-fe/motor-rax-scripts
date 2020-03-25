@@ -29,7 +29,7 @@ module.exports = async function appLoader(content) {
 
   const sourcePath = join(this.rootContext, entryPath);
 
-  const JSXCompilerPath = getHighestPriorityPackage('jsx-compiler', this.rootContext);
+  const JSXCompilerPath = getHighestPriorityPackage('@ali/tt-jsx-compiler', this.rootContext);
   const compiler = require(JSXCompilerPath);
 
   const compilerOptions = Object.assign({}, compiler.baseOptions, {
