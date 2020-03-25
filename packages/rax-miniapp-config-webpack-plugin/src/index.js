@@ -1,8 +1,10 @@
 const transformAppConfig = require('./transformAppConfig');
-const { join } = require('path');
-const { ensureDirSync } = require('fs-extra');
+const { join, resolve } = require('path');
+const fs = require('fs');
+const { ensureDirSync, pathExistsSync } = require('fs-extra');
 const safeWriteFile = require('./safeWriteFile');
 const adaptConfig = require('./adaptConfig');
+const constants = require('./constants');
 
 const PluginName = 'MiniAppConfigPlugin';
 
@@ -11,7 +13,7 @@ module.exports = class MiniAppConfigPlugin {
     this.options = passedOptions;
   }
   apply(compiler) {
-    let { outputPath, appConfig, target, type, getAppConfig } = this.options;
+    let { outputPath, appConfig, target, type, getAppConfig, entryPath } = this.options;
     compiler.hooks.beforeCompile.tapAsync(PluginName, transformConfig);
 
     function transformConfig(compilation, callback) {
@@ -19,6 +21,20 @@ module.exports = class MiniAppConfigPlugin {
       safeWriteFile(join(outputPath, 'app.json'), config, true);
       if (type === 'complie') {
         safeWriteFile(join(outputPath, 'app.config.js'), `module.exports = ${JSON.stringify(appConfig, null, 2)}`);
+      }
+      // add project json
+      if (constants[target] && constants[target] === 'bytedance-microapp') {
+        const projectPath = join(entryPath, '../', 'project.config.json');
+        try {
+          const content = fs.readFileSync(projectPath);
+          safeWriteFile(join(outputPath, 'project.config.json'), content);
+        } catch(err) {
+          safeWriteFile(join(outputPath, 'project.config.json'), `{
+            "setting": {
+              "es6": true
+            }
+          }`);
+        }
       }
       // Transform page config
       config.pages.map((page, index) => {

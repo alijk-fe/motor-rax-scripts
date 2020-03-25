@@ -114,6 +114,7 @@ module.exports = (context, target, options = {}) => {
       type: 'complie',
       appConfig,
       getAppConfig,
+      entryPath,
       outputPath,
       target
     }

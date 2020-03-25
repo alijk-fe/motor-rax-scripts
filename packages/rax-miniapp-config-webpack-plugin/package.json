@@ -1,5 +1,5 @@
 {
-  "name": "rax-miniapp-config-webpack-plugin",
+  "name": "@ali/tt-rax-miniapp-config-webpack-plugin",
   "version": "1.0.0",
   "description": "miniapp config webpack plugin",
   "main": "src/index.js",
@@ -10,5 +10,8 @@
   "license": "MIT",
   "dependencies": {
     "fs-extra": "^8.1.0"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npm.alibaba-inc.com"
   }
 }
