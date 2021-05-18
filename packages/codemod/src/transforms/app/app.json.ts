@@ -4,11 +4,11 @@ export default function (fileInfo) {
   appJSON.routes = appJSON.routes.map((route) => {
     let name;
     if (route.name) {
-      name = `pages/${name}`;
+      name = route.name;
     } else if (route.path === '/') {
-      name = 'pages/index';
+      name = '';
     } else {
-      name = `pages${route.path}/index`;
+      name = route.path.replace(/\//g, '');
     }
     return {
       ...route,

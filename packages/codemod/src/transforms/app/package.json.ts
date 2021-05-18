@@ -48,6 +48,10 @@ const updateDevList = [
     name: 'build-plugin-rax-compat-react',
     version: '^1.0.0',
   },
+  {
+    name: '@ali/build-plugin-rax-alihealth',
+    version: '^2.0.0',
+  },
 ];
 
 const extraScripts = [
