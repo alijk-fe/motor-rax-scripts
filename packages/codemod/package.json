@@ -1,6 +1,6 @@
 {
-  "name": "@ali/rax-codemod-jk",
-  "version": "0.0.1",
+  "name": "rax-codemod-jk",
+  "version": "0.0.5",
   "description": "Rax codemod scripts",
   "license": "MIT",
   "main": "lib/index.js",
@@ -25,9 +25,6 @@
     "npm": ">=3.0.0"
   },
   "bin": {
-    "rax-codemod": "./bin/index.js"
-  },
-  "publishConfig": {
-    "registry": "https://registry.npm.alibaba-inc.com"
+    "rax-codemod-jk": "./bin/index.js"
   }
 }

@@ -1,9 +1,6 @@
 # Changelog
 
-## v1.0.2
+## v0.0.5
 
-- Chore: optimize handle route name when it existed name
+- Complete customization for alihealth project.
 
-## v1.0.1
-
-- Fix: bin file

@@ -101,17 +101,27 @@ function runTransform(options) {
 
   afterTransform(options);
 
+  execa.commandSync('sudo rm -rf node_modules/.tmp node_modules/.cache .rax', {
+    stdio: 'inherit',
+  });
   console.log();
-  console.log(
-    chalk.green(
-      'Please update your node_modules when migrated.',
-    ),
-  );
+
+  execa.commandSync('tnpm update', {
+    stdio: 'inherit',
+  });
+
+  console.log();
+  execa.commandSync('eslint --ext .js --ext .jsx ./ --fix', {
+    stdio: 'inherit',
+  });
 
   console.log();
   console.log(
     chalk.green(
-      'Thanks for using rax-codemod, if you have any problem after migrating Rax related project, report it by https://github.com/alibaba/rax/issues.',
+      '迁移已完成，有问题请参考https://yuque.antfin.com/docs/share/3c932b06-37fd-44e1-a872-9b1faa9be5ff?# 《rax-app 升级》',
+    ),
+    chalk.green(
+      '也可以直接联系 @小滐',
     ),
   );
 }
